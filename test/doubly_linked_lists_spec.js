@@ -29,6 +29,14 @@ describe("DoublyLinkedList", function() {
     })
   });
 
+  describe('clear', function(){
+    it('clears the list', function(){
+      list.push(1).push(2);
+      list.clear();
+      expect(list.length).to.equal(0);
+    });
+  });
+
   describe("pop", function() {
     it("returns undefined when called on an empty list", function() {
       expect(list.pop()).to.equal(undefined);
@@ -66,7 +74,7 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  describe("get", function() {
+  xdescribe("get", function() {
     it("get a value from the list given an index", function() {
       list.push(0).push(1).push(2).push(3).push(4);
       expect(list.length).to.equal(5);
@@ -78,7 +86,7 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  describe("set", function() {
+  xdescribe("set", function() {
     it("set a value in the list given an index", function() {
       list.push(0).push(1).push(2).push(3).push(4);
       expect(list.length).to.equal(5);
@@ -91,7 +99,7 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  describe("insert", function() {
+  xdescribe("insert", function() {
     it("inserts a value into an empty list", function() {
       list.insert(0, 5);
       expect(list.length).to.equal(1);
@@ -116,7 +124,7 @@ describe("DoublyLinkedList", function() {
     });
   })
 
-  describe("remove", function() {
+  xdescribe("remove", function() {
     it("removes the first element in a list of size 1", function() {
       list.push(1);
       expect(list.length).to.equal(1);
@@ -146,7 +154,7 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  describe("reverse", function() {
+  xdescribe("reverse", function() {
     it("reverses the list in one pass", function() {
       list.push(0).push(1).push(2).push(3).push(4);
       expect(list.reverse()).to.deep.equal([4,3,2,1,0]);
