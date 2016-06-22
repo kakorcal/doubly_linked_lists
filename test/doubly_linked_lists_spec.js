@@ -74,7 +74,7 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  xdescribe("get", function() {
+  describe("get", function() {
     it("get a value from the list given an index", function() {
       list.push(0).push(1).push(2).push(3).push(4);
       expect(list.length).to.equal(5);
@@ -86,7 +86,7 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  xdescribe("set", function() {
+  describe("set", function() {
     it("set a value in the list given an index", function() {
       list.push(0).push(1).push(2).push(3).push(4);
       expect(list.length).to.equal(5);
@@ -99,7 +99,7 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  xdescribe("insert", function() {
+  describe("insert", function() {
     it("inserts a value into an empty list", function() {
       list.insert(0, 5);
       expect(list.length).to.equal(1);

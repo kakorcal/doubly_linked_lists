@@ -11,7 +11,16 @@ function DoublyLinkedList() {
 }
 
 DoublyLinkedList.prototype.getNodeAt = function(index){
-
+  // return undefined if invalid index
+  if(!Number.isInteger(index) || index < 0 || index > this.length - 1) return;
+  // return the val of the node at index
+  let currNode = this.head;
+  let counter = 0;
+  while(counter < index){
+    currNode = currNode.next;
+    counter++;
+  }
+  return currNode;
 };
 
 DoublyLinkedList.prototype.clear = function(){
@@ -78,28 +87,62 @@ DoublyLinkedList.prototype.unshift = function(val){
 DoublyLinkedList.prototype.shift = function(){
   // if the list is empty, return undefined
   if(!this.length) return;
+  // if the length is one, clear the list
   let val = this.head.val;
-  this.head = this.head.next;
-  this.head.prev = null;
-  this.length--;
+  if(this.length === 1){
+    this.clear();
+  }else{
+    this.head = this.head.next;
+    this.head.prev = null;
+    this.length--;    
+  }
   return val;
 };
 
 DoublyLinkedList.prototype.get = function(index){
-  // // return undefined if invalid index
-  // if(!Number.isInteger(index) || index < 0 || index > this.length - 1) return;
-  // // return the val of the node at index
-  // let currNode = this.head;
-  
-
+  // return undefined if invalid index
+  if(!Number.isInteger(index) || index < 0 || index > this.length - 1) return;
+  // return the val of the node at index
+  let currNode = this.head;
+  let counter = 0;
+  while(counter < index){
+    currNode = currNode.next;
+    counter++;
+  }
+  return currNode.val;
 };
 
 DoublyLinkedList.prototype.set = function(index, val){
-
+  // check valid syntax
+  let node = this.getNodeAt(index);
+  if(!node) return;
+  node.val = val;
+  return this;
 };
 
 DoublyLinkedList.prototype.insert = function(index, val){
+  // set currNode to be node before the place where
+  // newNode should be placed
+  let currNode = this.getNodeAt(index - 1);
+  let newNode = new Node(val);
+  // edge case empty list or adding to tail
+  if(!this.length || index === this.length){
+    return this.push(val);
+  }else if(index === 0){
+    // edge case insert to head
+    return this.unshift(val);
+  }else{
+    // generic case
+    // is valid node?
+    if(!currNode) return;
 
+    newNode.prev = currNode.next.prev;
+    newNode.next = currNode.next;
+    currNode.next.prev = newNode;
+    currNode.next = newNode;
+    this.length++
+    return this;
+  }
 };
 
 DoublyLinkedList.prototype.remove = function(index){
