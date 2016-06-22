@@ -1,0 +1,23 @@
+{
+  "name": "doubly_linked_lists",
+  "version": "1.0.0",
+  "description": "",
+  "main": "doubly_linked_lists.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kakorcal/doubly_linked_lists.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kakorcal/doubly_linked_lists/issues"
+  },
+  "homepage": "https://github.com/kakorcal/doubly_linked_lists#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
