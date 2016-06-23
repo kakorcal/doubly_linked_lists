@@ -165,7 +165,26 @@ DoublyLinkedList.prototype.remove = function(index){
 };
 
 DoublyLinkedList.prototype.reverse = function(){
-
+  // return the list reversed
+  // empty list
+  if(!this.length) return;
+  // one node
+  if(this.length === 1) return this;
+  // two or more nodes
+  if(this.length > 1){
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    
+    let currNode = this.head;
+    while(currNode){
+      let temp = currNode.next;
+      currNode.next = currNode.prev;
+      currNode.prev = temp;
+      currNode = currNode.next;
+    }
+  }
+  return this;
 };
 
 module.exports = DoublyLinkedList;

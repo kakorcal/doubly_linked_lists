@@ -154,15 +154,19 @@ describe("DoublyLinkedList", function() {
     });
   });
 
-  xdescribe("reverse", function() {
+  describe("reverse", function() {
     it("reverses the list in one pass", function() {
       list.push(0).push(1).push(2).push(3).push(4);
-      expect(list.reverse()).to.deep.equal([4,3,2,1,0]);
+      list.reverse();
+      expect(list.head.val).to.equal(4);
+      expect(list.head.next.val).to.equal(3);
     });
 
     it("should work with even number of nodes", function() {
       list.push(0).push(1).push(2).push(3).push(4).push(5);
-      expect(list.reverse()).to.deep.equal([5,4,3,2,1,0]);
+      list.reverse();
+      expect(list.tail.val).to.equal(0);
+      expect(list.tail.prev.val).to.equal(1);
     });
   });
 
