@@ -146,7 +146,22 @@ DoublyLinkedList.prototype.insert = function(index, val){
 };
 
 DoublyLinkedList.prototype.remove = function(index){
+  // Returns the value of the removed node
+  // edge case head and tail
+  if(index === 0) return this.shift();
+  if(index === this.length - 1) return this.pop();
 
+  // generic case
+  // get node at index
+  let rmNode = this.getNodeAt(index);  
+  if(!rmNode) return;
+
+  let rmVal = rmNode.val;
+  // connect node before and after rmNode
+  rmNode.prev.next = rmNode.next;
+  rmNode.next.prev = rmNode.prev;
+  this.length--;
+  return rmVal; 
 };
 
 DoublyLinkedList.prototype.reverse = function(){

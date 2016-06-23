@@ -124,7 +124,7 @@ describe("DoublyLinkedList", function() {
     });
   })
 
-  xdescribe("remove", function() {
+  describe("remove", function() {
     it("removes the first element in a list of size 1", function() {
       list.push(1);
       expect(list.length).to.equal(1);
